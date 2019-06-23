@@ -8,6 +8,13 @@
 #'
 #' @export
 server <- function(session, input, output) {
+  output$message <- renderUI({
+    tags$div(
+      class = "message",
+      "Click on a point to see where the opposite side of the earth is"
+    )
+  })
+
   output$map <- renderLeaflet({
     leaflet(height = "90%", width = "90%") %>%
       addProviderTiles(
@@ -17,6 +24,8 @@ server <- function(session, input, output) {
   })
 
   observeEvent(input$map_click, {
+    output$message <- NULL
+
     anti_lat <- -input$map_click$lat
     anti_lng <- (abs(input$map_click$lng) - 180) *
       (input$map_click$lng / abs(input$map_click$lng))

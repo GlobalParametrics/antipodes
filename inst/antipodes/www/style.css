@@ -18,3 +18,19 @@ body {
 #map {
   height: 100% !important;
 }
+
+.message {
+  pointer-events: none;
+  position: absolute;
+  top: 40%;
+  width: 50%;
+  text-align: center;
+  z-index: 999;
+  background-color: black;
+  background-color: rgba(0, 0, 0, .75);
+  color: white;
+  font-weight: bold;
+  padding: 50px;
+  margin: auto 25% auto 25%;
+  border-radius: 10px;
+}

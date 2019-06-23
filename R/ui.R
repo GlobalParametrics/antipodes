@@ -6,6 +6,7 @@
 ui <- function() {
   fluidPage(
     theme = "style.css",
+    uiOutput("message"),
     leafletOutput("map")
   )
 }
