@@ -13,14 +13,20 @@ server <- function(session, input, output) {
       addProviderTiles(
         "Stamen.Toner",
         options = providerTileOptions(noWrap = TRUE)
-      ) %>% flyTo(lng = 0, lat = 0, zoom = 1)
+      ) %>% flyTo(lng = 0, lat = 0, zoom = 2)
   })
 
   observeEvent(input$map_click, {
+    anti_lat <- -input$map_click$lat
+    anti_lng <- (abs(input$map_click$lng) - 180) *
+      (input$map_click$lng / abs(input$map_click$lng))
+
+    cat(paste("lat:", input$map_click$lat, "lng:", input$map_click$lng), "\n")
+    cat(paste("anti_lat:", anti_lat, "anti_lng:", anti_lng), "\n")
+
     leafletProxy("map") %>%
       clearMarkers() %>%
-      flyTo(lng = -input$map_click$lng, lat = -input$map_click$lat,
-            zoom = 2) %>%
-      addMarkers(lng = -input$map_click$lng, lat = -input$map_click$lat)
+      flyTo(lng = anti_lng, lat = anti_lat, zoom = 2) %>%
+      addMarkers(lng = anti_lng, lat = anti_lat)
   })
 }
