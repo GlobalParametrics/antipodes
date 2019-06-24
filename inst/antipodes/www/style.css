@@ -2,12 +2,13 @@ body, html {
   height: 100%;
 }
 
-.container-fluid {
-  height: 100%;
-}
-
 body {
   background-color: black;
+  font-family: 'National Park', sans-serif;
+}
+
+.container-fluid {
+  height: 100%;
 }
 
 .leaflet-container {
@@ -23,14 +24,16 @@ body {
   pointer-events: none;
   position: absolute;
   top: 40%;
-  width: 50%;
+  width: 40%;
   text-align: center;
   z-index: 999;
   background-color: black;
-  background-color: rgba(0, 0, 0, .75);
+  background-color: rgba(101, 0, 200, .9);
   color: white;
   font-weight: bold;
+  font-size: x-large;
   padding: 50px;
-  margin: auto 25% auto 25%;
+  margin: auto 30% auto 30%;
   border-radius: 10px;
+  letter-spacing: 1px;
 }

@@ -20,7 +20,7 @@ server <- function(session, input, output) {
       addProviderTiles(
         "Stamen.Toner",
         options = providerTileOptions(noWrap = TRUE)
-      ) %>% flyTo(lng = 0, lat = 0, zoom = 2)
+      ) %>% flyTo(lng = 0, lat = 0, zoom = 1.75)
   })
 
   observeEvent(input$map_click, {
