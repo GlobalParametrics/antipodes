@@ -36,6 +36,8 @@ server <- function(session, input, output) {
     leafletProxy("map") %>%
       clearMarkers() %>%
       flyTo(lng = anti_lng, lat = anti_lat, zoom = 2) %>%
-      addMarkers(lng = anti_lng, lat = anti_lat)
+      addMarkers(lng = input$map_click$lng, lat = input$map_click$lat,
+                 label = "Click") %>%
+      addMarkers(lng = anti_lng, lat = anti_lat, label = "Antipode")
   })
 }
